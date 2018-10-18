@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 var messageSchema = new Schema({
   conversationId: {
 //email address as gcloud entity key
-    type: String,
+    type: Schema.Types.ObjectId,
     required: true
   },
   body: {
@@ -13,7 +13,7 @@ var messageSchema = new Schema({
   },
   author:{
     //email address as gcloud entity key
-    type: String,
+    type: Schema.Types.ObjectId,
     ref:'User'
   }
 },

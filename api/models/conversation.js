@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 
 conversationSchema = new Schema({
 
-  participants: [{type: String, ref: 'User'}],
+  participants: [{type: Schema.Types.ObjectId, ref: 'User'}],
 });
 
 var Conversation = mongoose.model('Conversation', conversationSchema);

@@ -3,11 +3,16 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({extended: false});
+
 
 var indexRouter = require('./api/routes/index');
 var usersRouter = require('./api/routes/users');
 
 var expressValidator = require("express-validator");
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
 
 
 var app = express();
@@ -24,6 +29,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+//use sessions for tracking logins
+app.use(session({
+  secret: 'wotmalswjddnjsdud',
+  resave: true,
+  saveUninitialized: false,
+  session save on MongoDB
+    store: new MongoStore({
+      mongooseConnection: db
+    })
+  })
+)
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
