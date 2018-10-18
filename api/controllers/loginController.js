@@ -3,19 +3,19 @@ var database = require('./../../config/database.js');
 var User = require('../models/user.js')
 
 exports.login_attempt = function(req,res){
-  req.assert('email','Email is not valid').isEmail();
-  req.assert('email','Email cannot be blank').notEmpty();
-  req.assert('password','Password cannot be blank').notEmpty();
-
-  var errors = req.validationErrors();
-  var msg = "Login failed due to these reason(s):\n";
-  if(errors){
-    for (var i=0 in errors){
-      msg += "- "+errors[i].msg +"\n"
-    }
-    res.status(400)
-    return res.send(msg);
-  }
+  // req.assert('email','Email is not valid').isEmail();
+  // req.assert('email','Email cannot be blank').notEmpty();
+  // req.assert('password','Password cannot be blank').notEmpty();
+  //
+  // var errors = req.validationErrors();
+  // var msg = "Login failed due to these reason(s):\n";
+  // if(errors){
+  //   for (var i=0 in errors){
+  //     msg += "- "+errors[i].msg +"\n"
+  //   }
+  //   res.status(400)
+  //   return res.send(msg);
+  // }
 
   if(req.body.email && req.body.password){
     Company.authenticate(req.body.email, req.body.password, function(error, company){
