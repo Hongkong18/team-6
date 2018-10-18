@@ -4,6 +4,7 @@ function initMap(){
         [(name, district)]
     */
 
+    diseases = [
         {
             name: "alcohol",
             district: "quarry bay"
