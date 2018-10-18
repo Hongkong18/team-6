@@ -39,7 +39,14 @@ router.get('/signup', function(req,res,next){
 
 });
 
+router.get('/forum', function(req,res,next){
+  res.render('forumPage');
+});
 
+router.get('/displayMap', function(req,res,next){
+ res.render('mapPage');
+
+});
 
 
 
