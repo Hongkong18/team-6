@@ -75,6 +75,22 @@ exports.get_forum = function(req, res, next){
 }
 
 exports.post_forum_comments = function(req,res, next){
-
+  comment = new Comment({
+    forumId:req.params.forumId,
+    body:req.body.body,
+    author: req.session.userId
+  });
+  Forum.findById(req.params.forumId, function(err){
+    if(err){
+      return res.send("forum does not exist")
+    }
+    comment.save(function(err, sentComment){
+      if(err){
+        return res.send(err)
+      }
+      res.status(200)
+      return res.send("Comment uploaded successfully")
+    })
+  })
 
 }
