@@ -26,6 +26,11 @@ res.render('index');
 });
 
 
+router.post('/signupPost', function(req,res,next){
+
+})
+
+
 router.get('/signin', function(req,res,next){
 res.render('signInPage');
 });
@@ -55,6 +60,14 @@ res.render('searchEntry');
 router.get('/searchPage', function(req,res,next){
 res.render('searchPage');
 });
+
+
+router.post('/login', login_controller.login_attempt)
+
+
+
+
+
 
 
 

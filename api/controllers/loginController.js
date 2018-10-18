@@ -16,13 +16,10 @@ exports.login_attempt = function(req,res){
   //   res.status(400)
   //   return res.send(msg);
   // }
-
   if(req.body.email && req.body.password){
-    Company.authenticate(req.body.email, req.body.password, function(error, company){
-console.log(company)
+    User.authenticate(req.body.email, req.body.password, function(error, user){
 
-
-      if(!company){
+      if(!user){
         var err = new Error('Wrong email');
         err.status = 401;
         return res.json("Email does not exist!");
@@ -32,14 +29,11 @@ console.log(company)
         err.status = 401;
         return res.json("Password incorrect!");
 
-      } else if(!company.emailVerified){
-        var err = new Error('Not Verified')
-        err.status = 401;
-        return res.json("Email not yet verified!")
       } else{
-        req.session.userId = company._id;
-        req.session.name = company.name;
-        req.session.email = company.email;
+        req.session.userId = user._id;
+        // req.session.name = user.name;
+
+        req.session.email = user.email;
         res.status(200)
         return res.send("login success!");
       }

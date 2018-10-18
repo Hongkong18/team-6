@@ -6,19 +6,25 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({extended: false});
 
-
-var indexRouter = require('./api/routes/index');
-var usersRouter = require('./api/routes/users');
-
 var expressValidator = require("express-validator");
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 
 
+var indexRouter = require('./api/routes/index');
+var usersRouter = require('./api/routes/users');
+var messengerRouter = require('./api/routes/messenger');
+var forumRouter = require('./api/routes/forum');
+
+
+
+
 //connect to MongoDB
 var database = require('./config/database.js');
 var mongoose = require('mongoose');
-mongoose.connect(database.url);
+mongoose.connect(database.url,{
+  useCreateIndex: true
+});
 
 
 //handle Mongo error
@@ -29,6 +35,19 @@ db.once('open', function(){
 })
 
 var app = express();
+
+
+//use sessions for tracking logins
+app.use(session({
+    secret: 'wotmalswjddnjsdud',
+    resave: true,
+    saveUninitialized: false,
+    // session save on MongoDB
+    store: new MongoStore({
+      mongooseConnection: db
+    })
+  })
+)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -42,18 +61,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/messenger', messengerRouter);
+app.use('/forum', forumRouter);
 
-//use sessions for tracking logins
-app.use(session({
-  secret: 'wotmalswjddnjsdud',
-  resave: true,
-  saveUninitialized: false,
-  // session save on MongoDB
-    store: new MongoStore({
-      mongooseConnection: db
-    })
-  })
-)
 
 
 // catch 404 and forward to error handler
