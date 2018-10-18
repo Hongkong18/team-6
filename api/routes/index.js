@@ -38,7 +38,7 @@ res.render('signInPage');
 
 
 
-router.post('/signup',user_controller.user_sign_up);
+//router.post('/signup',user_controller.user_sign_up);
 
 router.get('/forum', function(req,res,next){
   res.render('forumPage');

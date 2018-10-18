@@ -23,7 +23,7 @@
 
 <div style="border:1px solid #ccc">
   <div class="container">
-    <form id = "signInForm">
+    
     <h1>Sign Up</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
@@ -42,7 +42,7 @@
     <label for="psw"><b>Password</b></label>
     <input id = "psw" type="password" placeholder="Enter Password" name="psw" required>
 
-    </form>
+    
     <label>
       <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
     </label>
@@ -57,36 +57,4 @@
 </div>
 </header>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script>
-  $('#signupbtn').click(function(){
-    var email = $('#email').val();
-    var phoneNo = $('#phoneNo').val();
-    var name = $('#name').val();
-    var password = $('#psw').val();
-    var gender = $('#gender').val();
-    var role = 2;
 
-    var registerData = {
-      'name': name,
-      'phoneNo': phoneNo,
-      'email': email,
-      'password': password,
-      'role' : role,
-      'gender': gender
-    }
-    $.ajax({
-      type:'POST',
-      url: '/signup',
-      data: registerData,
-      complete: function(res){
-        if(res.status === 401){
-          alert(res.responseText)
-        } else{
-          window.location.href = '/landing'
-        }
-      }
-    })
-  })
-
-
-</script>
