@@ -48,6 +48,14 @@ router.get('/displayMap', function(req,res,next){
 
 });
 
+router.get('/search', function(req,res,next){
+res.render('searchEntry');
+});
+
+router.get('/searchPage', function(req,res,next){
+res.render('searchPage');
+});
+
 
 
 module.exports = router;
