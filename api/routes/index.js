@@ -61,6 +61,11 @@ router.get('/searchPage', function(req,res,next){
 res.render('searchPage');
 });
 
+router.get('/articlePage', function(req,res,next){
+
+res.render('articlePage');
+
+});
 
 router.post('/login', login_controller.login_attempt)
 
