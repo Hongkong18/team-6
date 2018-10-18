@@ -12,6 +12,12 @@ router.get('/signupPage',function(req,res,next){
 
 });
 
+router.post('/signupPost', function(req,res,next){
+
+    res.render('signInPage');
+    
+});
+
 
 
 
