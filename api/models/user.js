@@ -10,7 +10,8 @@ var userSchema = new Schema({
   email: {type: String, required: true, unique: true},
   password: {type: String, required: true},
 //0 - admin, 1 - doctor, 2 - patient
-  roles:{type:Number, default: false},
+  roles:{type:Number, default: 2},
+// M - male, F - female
   gender : {type: String},
   updatedAt: {type:Date, default: Date.now()}
 
@@ -24,7 +25,7 @@ userSchema.statics.authenticate = function (email, password, callback) {
       if (err) {
         return callback(err)
       } else if (!user) {
-        var err = new Error('Company not found.');
+        var err = new Error('User not found.');
         err.status = 401;
         return callback(err);
       }
@@ -42,7 +43,7 @@ userSchema.statics.authenticate = function (email, password, callback) {
 
 //hashing pw before saving to database
 userSchema.pre('save',function(next){
-  var company = this;
+  var user = this;
   bcrypt.hash(user.password, 10, function(err, hash){
     if(err){
       return next(err);
@@ -53,5 +54,5 @@ userSchema.pre('save',function(next){
 });
 
 
-var Company = mongoose.model('Company', companySchema);
-module.exports = Company;
+var User = mongoose.model('User', userSchema);
+module.exports = User;

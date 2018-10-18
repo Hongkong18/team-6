@@ -15,6 +15,19 @@ var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 
 
+//connect to MongoDB
+var database = require('./config/database.js');
+var mongoose = require('mongoose');
+mongoose.connect(database.url);
+
+
+//handle Mongo error
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'))
+db.once('open', function(){
+  console.log("DB connected!")
+})
+
 var app = express();
 
 // view engine setup
@@ -35,7 +48,7 @@ app.use(session({
   secret: 'wotmalswjddnjsdud',
   resave: true,
   saveUninitialized: false,
-  session save on MongoDB
+  // session save on MongoDB
     store: new MongoStore({
       mongooseConnection: db
     })
