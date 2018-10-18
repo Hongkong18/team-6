@@ -19,14 +19,19 @@ router.get('/signupPage',function(req,res,next){
 
 });
 
-router.get('/login', login_controller.login_attempt)
-
-
 router.post('/signupPost', function(req,res,next){
 
     res.render('signInPage');
 
 });
+
+
+
+
+router.post('/login', login_controller.login_attempt)
+
+
+
 
 
 

@@ -45,7 +45,7 @@ exports.user_sign_up = function(req,res){
       }
 
     //session cookie
-      console.log(user)
+    
       req.session.userId = user._id;
       req.session.name = user.name;
       req.session.email = user.email;
