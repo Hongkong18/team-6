@@ -44,3 +44,21 @@ exports.new_forum = function(req,res,next){
     return res.send("Forum added!")
   })
 }
+
+exports.get_forum = function(req,res,next){
+  Comment.find({forumId: req.params.forumId})
+    .select('createdAt content author')
+    .sort('-createdAt')
+    .populate({
+      path: 'author',
+      select: 'name'
+    })
+    .exec(function(err, comments){
+      if(err){
+        return res.send(err)
+      }
+      res.status(200)
+      res.send(comments)
+    })
+
+}

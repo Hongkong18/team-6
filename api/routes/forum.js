@@ -11,7 +11,7 @@ router.get('/', forum_controller.get_forum_list)
 
 router.post('/new', forum_controller.new_forum)
 
-
+router.get('/:forumId', forum_controller.get_forum)
 
 
 
