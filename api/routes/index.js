@@ -11,16 +11,21 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/signup', user_controller.user_sign_up)
+
+
 router.get('/signupPage',function(req,res,next){
 
   res.render('signUpPage');
 
 });
 
+router.get('/login', login_controller.login_attempt)
+
+
 router.post('/signupPost', function(req,res,next){
 
     res.render('signInPage');
-    
+
 });
 
 
