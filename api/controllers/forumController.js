@@ -45,7 +45,7 @@ exports.new_forum = function(req,res,next){
   })
 }
 
-exports.get_forum = function(req,res,next){
+exports.get_forum_comments = function(req,res,next){
   Comment.find({forumId: req.params.forumId})
     .select('createdAt content author')
     .sort('-createdAt')
@@ -60,5 +60,21 @@ exports.get_forum = function(req,res,next){
       res.status(200)
       res.send(comments)
     })
+
+}
+exports.get_forum = function(req, res, next){
+  Forum.findById(req.params.forumId).exec((err, forums)=>{
+    if(err){
+      return res.send(err)
+    }
+    res.status(200)
+    return res.send(forums)
+
+  })
+
+}
+
+exports.post_forum_comments = function(req,res, next){
+
 
 }

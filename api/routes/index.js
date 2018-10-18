@@ -25,9 +25,11 @@ router.get('/landing',function(req,res,next){
 res.render('index');
 });
 
-<<<<<<< HEAD
+
 router.post('/signupPost', function(req,res,next){
-=======
+
+})
+
 
 router.get('/signin', function(req,res,next){
 res.render('signInPage');
@@ -37,7 +39,6 @@ res.render('signInPage');
 
 
 router.get('/signup', function(req,res,next){
->>>>>>> 77e424d2157f3099fcd1b16630514c89cd284a09
 
     res.render('signInPage');
 
