@@ -1,4 +1,16 @@
-<%- include ('partials/header') -%>
-<header>Mental issues trend in Hong Kong</header>
-<iframe id="map">
-<script type="text/javascript" src="/src/map.js"></script>
+<% include partials/header %>
+<h2>Mental issues trend in Hong Kong</h2>
+    <style type="text/css">
+        #map{
+            height: 100%;
+        }
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+          }
+    </style>
+<div id="map"></div>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9ycAc86k8TvmIUE9Ojl0zbVfO-4OzqiM&callback=initMap">
+    </script>
