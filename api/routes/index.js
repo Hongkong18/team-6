@@ -38,11 +38,7 @@ res.render('signInPage');
 
 
 
-router.get('/signup', function(req,res,next){
-
-    res.render('signInPage');
-
-});
+router.post('/signup',user_controller.user_sign_up);
 
 router.get('/forum', function(req,res,next){
   res.render('forumPage');
@@ -70,7 +66,18 @@ res.render('articlePage');
 router.post('/login', login_controller.login_attempt)
 
 
-
+router.post('/logout', function(req,res,next){
+  if(req.session){
+    //delete session object
+    req.session.destroy(function(err){
+      if(err){
+        return next(err);
+      } else{
+        return res.redirect('/');
+      }
+    });
+  }
+})
 
 
 
