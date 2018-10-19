@@ -1,75 +1,32 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	  <a class="navbar-brand" href="#">Navbar</a>
-	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	  </button>
 
-	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<ul class="navbar-nav mr-auto">
-		  <li class="nav-item active">
-			<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-		  </li>
-		  <li class="nav-item">
-			<a class="nav-link" href="#">Link</a>
-		  </li>
-		  <li class="nav-item dropdown">
-			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			  Dropdown
-			</a>
-			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			  <a class="dropdown-item" href="#">Action</a>
-			  <a class="dropdown-item" href="#">Another action</a>
-			  <div class="dropdown-divider"></div>
-			  <a class="dropdown-item" href="#">Something else here</a>
-			</div>
-		  </li>
-		  <li class="nav-item">
-			<a class="nav-link disabled" href="#">Disabled</a>
-		  </li>
-		</ul>
-		<form class="form-inline my-2 my-lg-0">
-		  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-		  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-		</form>
-	  </div>
-	</nav>
-	<h2 class="text-center">Search For Our Services</h2>
-	<div class="row">
-		<div class="col-md-4">
-			<div class="input-group">
-			  <div class="input-group-prepend">
-				<label class="input-group-text" for="inputGroupSelect01">Service Type</label>
-			  </div>
-			  <select class="custom-select" id="inputGroupSelect01">
-				<option selected>Choose Service Type...</option>
-				<option value="1">Service 1</option>
-				<option value="2">Service 2</option>
-				<option value="2">Service 3</option>
-			  </select>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="input-group">
-			  <div class="input-group-prepend">
-				<label class="input-group-text" for="inputGroupSelect01">Language</label>
-			  </div>
-			  <select class="custom-select" id="inputGroupSelect01">
-				<option selected>Choose language...</option>
-				<option value="en">English</option>
-				<option value="chi">Chinese</option>
-			  </select>
-			</div>
-		</div>
-		<div class="col-md-2">
-			<button type="button" class="btn btn-primary">Search</button>
-		</div>
-	</div>
-  </body>
-</html>
+<head>
+  <title>landing page</title>
+  <script
+  src="https://code.jquery.com/jquery-1.12.4.js"
+  integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+  crossorigin="anonymous"></script>
+  <script src = "js/main.js" type="text/javascript"></script>
+  <link href="stylesheets/style.css" rel="stylesheet" type="text/css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<!--Homepage header-->
+<header class="w3-panel w3-center w3-opacity" style="padding:50px 16px">
+<h1 style="padding-bottom: 20px">CONNECTING THE MENTAL HEALTH COMMUNITY</h1>
+<h2 class="w3-xlarge"  style="padding-bottom: 70px">All in One stop to ASK, DISCUSS and CONNECT with the community focussed towards improving mental health. </h1>
+<h3>I want to</h3>
+<div class="w3-content" style="max-width:1500px">
+      
+  <div class="w3-padding-32" style="display:flex ; flex-direction: column;">
+          
+              <a href="/search" class="w3-bar-item w3-button w3-xlarge w3-teal">Search</a>
+              <a href="/forum" class="w3-bar-item w3-button w3-xlarge w3-indigo">Explore the forum to see what the community is discussing!</a>
+              <a href="/articlePage" class="w3-bar-item w3-button w3-xlarge w3-red">Read articles from verified doctors and choose the best advice for you!</a>
+              <a href="/displayMap" class="w3-bar-item w3-button w3-xlarge w3-green">I am an admin, I want to access the search trends!</a>
+  </div>
+</div>
+</header>
